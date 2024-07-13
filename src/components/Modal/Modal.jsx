@@ -1,5 +1,5 @@
-// Modal.jsx
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './Modal.module.css';
 
 export class Modal extends Component {
@@ -26,14 +26,20 @@ export class Modal extends Component {
   render() {
     const { largeImageURL } = this.props;
 
+      // Ensure largeImageURL is always a string
+      const imageURL = String(largeImageURL);
+      
     return (
       <div className={css.overlay} onClick={this.handleBackdropClick}>
         <div className={css.modal}>
-          <img src={largeImageURL} alt="" />
+          <img src={imageURL} alt="" />
         </div>
       </div>
     );
   }
 }
 
-export default Modal;
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+};

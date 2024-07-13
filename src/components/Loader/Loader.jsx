@@ -1,4 +1,3 @@
-// Loader.jsx
 import React from 'react';
 import { ColorRing } from 'react-loader-spinner';
 import css from './Loader.module.css';

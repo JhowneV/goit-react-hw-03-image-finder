@@ -89,8 +89,10 @@ export class App extends Component {
   };
 
  openModal = largeImageURL => {
-    this.setState({ showModal: true, largeImageURL });
-  };
+  // Ensure largeImageURL is a string
+  const imageURL = String(largeImageURL);
+  this.setState({ showModal: true, largeImageURL: imageURL });
+};
 
    closeModal = () => {
     this.setState({ showModal: false, largeImageURL: '' });
